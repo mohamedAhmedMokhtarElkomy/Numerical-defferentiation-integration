@@ -1,16 +1,27 @@
-# This is a sample Python script.
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+#using points
+def trapizoidal(points, h) -> float:
+
+    a = points[0]
+    b = points[-1]
+
+    # Value of integration
+    I = 0.0
+
+    for i in range(1,len(points) - 1):
+        I += points[i].y
+    print(I)
+
+    I = (h / 2) * (a.y + b.y + 2 * I)
+
+    return I
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    points = (Point(0, 0), Point(1, 10), Point(2, 12), Point(3, 14))
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    print(trapizoidal(points, 1.0))
