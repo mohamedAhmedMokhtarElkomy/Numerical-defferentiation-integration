@@ -10,6 +10,7 @@ class Numerical:
         self.equation = ""
         self.points = []
         self.n = n
+
     #
     #     # check whether the input is equation or table of points
     #     # str -> equation
@@ -31,11 +32,11 @@ class Numerical:
     def interpolate(self, xi: int) -> float:
         # Initialize result
         result = 0.0
-        for i in range(self.n):
+        for i in range(self.n+1):
 
             # Compute individual terms of above formula
             term = self.points[i].y
-            for j in range(self.n):
+            for j in range(self.n+1):
                 if j != i:
                     term = term * (xi - self.points[j].x) / (self.points[i].x - self.points[j].x)
 
